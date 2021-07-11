@@ -1,58 +1,81 @@
-// const resultEl = document.querySelector('#value');
-// const buttonsEl = document.querySelectorAll('button');
+// // const btnsEl = document.querySelectorAll('button');
+
+// // btnsEl.forEach(btn => {
+// //     btn.addEventListener('click', function () {
+// //         const action = this.dataset.action;
+// //         const inp = this.parentElement.querySelector('#value');
+// //         const currentValue = +inp.textContent;
+// //         console.log(action);
+// //         console.log(inp);
+// //         console.log(currentValue);
+// //         let newValue;
+
+// //         if (action === 'increment') {
+// //             newValue = currentValue + 1;
+// //         } else {
+// //             newValue = currentValue - 1 > 0 ? currentValue - 1 : 0;            
+// //         }
+
+// //         inp.textContent = newValue;
+// //     })
+// // })
 
 
-// console.log(resultEl);
-// console.log(buttonsEl);
-// console.log(buttonsEl[0].dataset.action);
-// console.log(buttonsEl[1].dataset.action);
-
-
-// // resultEl.addEventListener('click', onButtonclick);
-
-// // function onButtonclick() {
-// //     console.log('Click')
-// // }
-
+// const btnsEl = document.querySelectorAll('button');
+// const btn = document.querySelector('button');
+// const value = document.querySelector('#value');
+// const currentValue = Number(value.textContent);
 // let counterValue = 0;
+// //let actionValue = btnsEl[0].dataset.action;
+// //console.log(actionValue);
+// //console.log(btnsEl);
+// //console.log(btn);
+// const incrementValue = btnsEl[1];
+// const decrementValue = btnsEl[0]
 
-// buttonsEl[1].addEventListener('click', () => {
-//     resultEl.addEventListener('click', increment);
-// });
-
-// function increment() {
-//    counterValue += 1;
+// const increment = () => {
+//     if (btnsEl[1].dataset.action === 'increment') {
+//         counterValue = currentValue + 1;
+//         console.log(counterValue);
+//         }
+//     return value.textContent = counterValue;
 // }
 
-// buttonsEl[0].addEventListener('click', () => {
-//     resultEl.addEventListener('click', decrement);
-// });
-
-// function decrement() {
-//   counterValue -= 1;
+// const decrement = () => {
+//     if (btnsEl[0].dataset.action === 'decrement') {
+//         counterValue = currentValue - 1;
+//         }
+//       return value.textContent = counterValue;
 // }
 
-// console.log(counterValue);
+// // incrementValue.addEventListener('click', increment);
+// // incrementValue.addEventListener('click', increment);
+// // incrementValue.addEventListener('click', increment);
+// // decrementValue.addEventListener('click', decrement);
+
+// btnsEl.forEach(btn => {
+//     btn.addEventListener('click', increment), btn.addEventListener('click', decrement);
+// })
+
+
 
 
 const btnsEl = document.querySelectorAll('button');
-
 btnsEl.forEach(btn => {
     btn.addEventListener('click', function () {
         const action = this.dataset.action;
-        const inp = this.parentElement.querySelector('#value');
-        const currentValue = +inp.textContent;
+        const value = document.querySelector('#value');
+        const currentValue = Number(value.textContent);
         console.log(action);
-        console.log(inp);
         console.log(currentValue);
-        let newValue;
+        let counterValue;
 
         if (action === 'increment') {
-            newValue = currentValue + 1;
+            counterValue = currentValue + 1;
         } else {
-            newValue = currentValue - 1 > 0 ? currentValue - 1 : 0;            
+            counterValue = currentValue - 1 > 0 ? currentValue - 1 : 0;            
         }
 
-        inp.textContent = newValue;
+        value.textContent = counterValue;
     })
 })
